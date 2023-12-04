@@ -41,6 +41,13 @@
       rel="stylesheet"
     />
     <link href="style.css" rel="stylesheet" />
+    <style>
+      .center-image {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+    </style>
   </head>
   <body class="nd-docs">
     <div class="nd-pageheader">
@@ -81,6 +88,7 @@
             technical standpoint, what factors are impeding the broader adoption
             of this technology.
           </p>
+          <img src="FL1.png" alt="Federated Learning" style="width: 100%" />
           <p style="text-align: left">
             The paper "Communication-Efficient Learning of Deep Networks from
             Decentralized Data" is seminal in introducing federated learning. It
@@ -103,16 +111,172 @@
             Literature Review; Biography; Social Impact; Industry Applications;
             Follow-on Research; and Peer-Review
           </h2>
-
+          <h2>1. Literature Review</h2>
           <p>
-            Just as we have done in the role-playing exercise, analyze the paper
-            from all perspectives.
+            The concept of federated learning introduced in this paper builds
+            upon various prior works in distributed computing,
+            privacy-preserving data analysis, and machine learning. Before this
+            paper, most machine learning models relied on centralized data
+            collection, which raised concerns about data privacy and efficiency.
+            The paper references earlier works on parallelized learning and data
+            decentralization but takes a novel approach by focusing on
+            communication efficiency and privacy.
           </p>
-
+          <h3>The FedAvg Algorithm - Overview</h3>
           <p>
-            Optionally, in addition to a reading-based analysis, implement the
-            ideas of the paper in code, and report on your findings.
+            The FedAvg algorithm is designed to efficiently train a global model
+            in a federated setting. The key steps are as follows:
           </p>
+          <img src="FL2.png" alt="Federated Learning" style="width: 60%" />
+          <ul>
+            <li>
+              <b>Initialization:</b> A global model is initialized on a central
+              server.
+            </li>
+            <li>
+              Local Training: This global model is sent to a subset of
+              participating devices (clients). Each client trains the model on
+              their local data.
+            </li>
+            <li>
+              <b>Model Updating:</b> After local training, each client sends
+              their model updates (i.e., the weights of the trained model) back
+              to the server. Notably, the actual data remains on the client,
+              ensuring privacy.
+            </li>
+            <li>
+              <b>Aggregation:</b> The server aggregates these updates, typically
+              by averaging the weights, to update the global model.
+            </li>
+            <li>
+              <b>Iteration:</b> Steps 2-4 are repeated for several rounds until
+              the model converges or meets certain performance criteria.
+            </li>
+          </ul>
+
+          <p></p>
+          <h2>2. Biograpphy</h2>
+          <ol>
+            <li>
+              <strong>Brendan McMahan</strong>
+              <ul>
+                <li>
+                  <strong>Research Field:</strong> Brendan McMahan's research
+                  primarily focuses on machine learning, with a specific
+                  interest in federated learning, privacy-preserving AI, and
+                  distributed algorithms.
+                </li>
+                <li>
+                  <strong>Experience:</strong> McMahan is known for his work at
+                  Google, where he has been a key figure in the development of
+                  federated learning technologies. His contributions have been
+                  instrumental in advancing machine learning techniques that are
+                  both privacy-conscious and efficient for use on decentralized
+                  data.
+                </li>
+              </ul>
+              <div class="center-image">
+                <img src="Brendan.jpeg" alt="Brendan" style="width: 20%" />
+              </div>
+            </li>
+            <li>
+              <strong>Eider Moore</strong>
+              <ul>
+                <li>
+                  <strong>Research Field:</strong> Eider Moore's research
+                  interests are less publicly documented, but their contribution
+                  to this paper suggests a focus on distributed machine learning
+                  and privacy-preserving technologies.
+                </li>
+                <li>
+                  <strong>Experience:</strong> Information about Eider Moore's
+                  specific roles or contributions outside this paper might not
+                  be widely known or available in public domains.
+                </li>
+              </ul>
+            </li>
+            <li>
+              <strong>Daniel Ramage</strong>
+              <ul>
+                <li>
+                  <strong>Research Field:</strong> Daniel Ramage specializes in
+                  natural language processing (NLP) and machine learning, with a
+                  particular interest in applying these technologies in
+                  practical, user-centered contexts.
+                </li>
+                <li>
+                  <strong>Experience:</strong> Ramage has a strong background in
+                  both academia and industry. He has worked on various NLP and
+                  machine learning projects, contributing to the development of
+                  technologies that bridge the gap between theoretical research
+                  and real-world applications.
+                </li>
+              </ul>
+            </li>
+            <li>
+              <strong>Seth Hampson</strong>
+              <ul>
+                <li>
+                  <strong>Research Field:</strong> Seth Hampson's specific
+                  research interests are not widely publicized. However, his
+                  involvement in this paper indicates a focus on distributed
+                  systems and machine learning.
+                </li>
+                <li>
+                  <strong>Experience:</strong> Details about Seth Hampson's
+                  broader experiences and roles in the field are not extensively
+                  covered in publicly available sources.
+                </li>
+              </ul>
+            </li>
+            <li>
+              <strong>Blaise Agüera y Arcas</strong>
+              <ul>
+                <li>
+                  <strong>Research Field:</strong> Blaise Agüera y Arcas works
+                  primarily in machine learning, with a strong interest in
+                  neural networks, computational neuroscience, and
+                  human-computer interaction.
+                </li>
+                <li>
+                  <strong>Experience:</strong> Agüera y Arcas is known for his
+                  work at Google, particularly in AI and machine learning. He
+                  has played a significant role in developing innovative
+                  technologies and has been a prominent speaker on topics
+                  related to AI and the intersection of technology and society.
+                </li>
+              </ul>
+            </li>
+          </ol>
+
+          <h2>3. Social Impact</h2>
+          <p>The social implications of this research are significant</p>
+
+          <div class="center-image">
+            <img src="FL4.jpeg" alt="Federated Learning" style="width: 30%" />
+          </div>
+          <ul>
+            <li>
+              <b>Privacy Preservation:</b> By enabling machine learning models
+              to be trained on-device without the need to share personal data,
+              this approach addresses major privacy concerns.
+            </li>
+            <li>
+              <b>Accessibility and Equity:</b> Federated learning allows for
+              model training on a wide variety of devices, including those with
+              limited computational resources, promoting more equitable access
+              to AI technology.
+            </li>
+            <li>
+              <b>Data Security: </b> Reducing the need to centralize data for
+              training models lowers the risk of data breaches.
+            </li>
+          </ul>
+          <h2>4. Industry Applications</h2>
+          <h2>5. Follow-on Research</h2>
+          <h2>6. Peer-Review</h2>
+          <h2>7. Code Implementation</h2>
+          <h2>Conclusion</h2>
 
           <h3>References</h3>
 
