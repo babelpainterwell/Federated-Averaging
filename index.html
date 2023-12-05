@@ -127,7 +127,6 @@
             The FedAvg algorithm is designed to efficiently train a global model
             in a federated setting. The key steps are as follows:
           </p>
-          <img src="FL2.png" alt="Federated Learning" style="width: 60%" />
           <ul>
             <li>
               <b>Initialization:</b> A global model is initialized on a central
@@ -188,11 +187,6 @@
                   to this paper suggests a focus on distributed machine learning
                   and privacy-preserving technologies.
                 </li>
-                <li>
-                  <strong>Experience:</strong> Information about Eider Moore's
-                  specific roles or contributions outside this paper might not
-                  be widely known or available in public domains.
-                </li>
               </ul>
             </li>
             <li>
@@ -221,11 +215,6 @@
                   research interests are not widely publicized. However, his
                   involvement in this paper indicates a focus on distributed
                   systems and machine learning.
-                </li>
-                <li>
-                  <strong>Experience:</strong> Details about Seth Hampson's
-                  broader experiences and roles in the field are not extensively
-                  covered in publicly available sources.
                 </li>
               </ul>
             </li>
@@ -273,22 +262,204 @@
             </li>
           </ul>
           <h2>4. Industry Applications</h2>
+          <p>
+            Federated learning is particularly relevant in scenarios where
+            individual entities must train models on datasets larger than their
+            own but are unable to share the raw data due to legal, strategic, or
+            economic considerations. The success of this technology hinges on
+            robust connections between local servers and the minimal
+            computational power required for each node.
+          </p>
+
+          <p>
+            In the realm of transportation, self-driving cars leverage various
+            machine learning technologies such as computer vision for obstacle
+            analysis and machine learning for adapting to environmental factors,
+            like the condition of the road. The traditional cloud-based approach
+            for managing a potentially large fleet of self-driving cars poses
+            safety risks due to the need for rapid real-world responses.
+            Federated learning emerges as a solution by reducing data transfer
+            volumes and expediting the learning processes.
+          </p>
+
+          <p>
+            Within the context of industry and smart manufacturing, machine
+            learning techniques are widely adopted to enhance industrial
+            processes' efficiency and effectiveness while maintaining a high
+            level of safety. Despite these advancements, the privacy of
+            sensitive data remains a paramount concern for industries. Federated
+            learning algorithms offer a viable solution by addressing these
+            issues without compromising sensitive information. Additionally,
+            federated learning finds applications in PM2.5 prediction,
+            supporting smart city sensing applications.
+          </p>
+
+          <p>
+            Regarding medicine and digital health, federated learning tackles
+            challenges related to data governance and privacy by facilitating
+            collaborative algorithm training without the need for direct data
+            exchange. The conventional approach of centralizing data from
+            various medical institutions raises critical concerns about patient
+            privacy and data protection. Federated learning enables the training
+            of machine learning models at scale, across multiple medical
+            institutions while preserving data integrity. Notably, recent
+            research validates the effectiveness of federated learning in
+            predicting clinical outcomes for patients with COVID-19,
+            demonstrating accuracy and generalizability in a global context. A
+            systematic review of federated learning in healthcare outlines
+            challenges specific to medical data, emphasizing the need for
+            careful consideration.
+          </p>
+
+          <p>
+            A collaborative effort between industry and academia has yielded
+            MedPerf, an open-source platform designed to validate medical AI
+            models using real-world data. It relies on federated evaluation of
+            AI models to address patient privacy concerns and utilizes diverse
+            benchmark committees to define specifications for neutral,
+            clinically impactful benchmarks.
+          </p>
+
+          <p>
+            In the field of robotics, which spans a spectrum from simple,
+            repetitive tasks to complex, unpredictable activities, machine
+            learning is indispensable. Federated learning stands out as a
+            solution to enhance conventional machine learning training methods.
+            Research papers showcase the application of federated learning in
+            diverse robotic scenarios, including navigation over various
+            environments, multi-robot navigation under limited communication
+            bandwidth, and vision-based navigation, all contributing to improved
+            sim-to-real transfer.
+          </p>
+
           <h2>5. Follow-on Research</h2>
+          <p>
+            In the paper "Communication-Efficient Learning of Deep Networks from
+            Decentralized Data," several potential issues are identified that
+            can hinder the effective implementation of federated learning:
+          </p>
+
+          <ol>
+            <li>
+              <strong>Non-IID Data Distribution:</strong> Data in federated
+              learning is typically not identically and independently
+              distributed (non-IID) across the network. This variability can
+              negatively impact the learning process and the performance of the
+              global model.
+            </li>
+            <li>
+              <strong>Unbalanced Data:</strong> The amount of data across
+              devices can be highly unbalanced, leading to skewed model updates
+              and potentially reducing the overall effectiveness of the model.
+            </li>
+            <li>
+              <strong>Limited Communication Bandwidth:</strong> Federated
+              learning is challenged by limited bandwidth for communication
+              between the devices and the central server, which can hinder the
+              process, especially when dealing with large models or many
+              devices.
+            </li>
+            <li>
+              <strong>Devices Heterogeneity:</strong> There is significant
+              heterogeneity in the computational capabilities, storage, and
+              network connectivity of the devices in federated learning, causing
+              challenges in synchronizing and executing the learning process
+              efficiently.
+            </li>
+          </ol>
           <h2>6. Peer-Review</h2>
+          <p>
+            The paper "Communication-Efficient Learning of Deep Networks from
+            Decentralized Data" is a seminal work in the field of federated
+            learning. It outlines the fundamental architecture of an FL system
+            and an aggregation algorithm for updating the model on a central
+            server. Although this work primarily focuses on optimization
+            properties within an FL setting and offers limited discussion on
+            practical issues that might arise in real-world applications, we
+            believe it provides an excellent foundation for understanding the
+            technology and setting the stage for future research or practical
+            applications.
+          </p>
           <h2>7. Code Implementation</h2>
+          <div style="display: flex; justify-content: space-between">
+            <img
+              src="FL2.png"
+              alt="Federated Learning"
+              style="width: 30%; margin-right: 5%"
+            />
+            <img
+              src="server.png"
+              alt="Server"
+              style="width: 30%; margin-right: 5%"
+            />
+            <img src="client.png" alt="Client" style="width: 30%" />
+          </div>
+          <br
+          <p>
+            <a
+              href="https://colab.research.google.com/drive/1LIyYtxJQ5UTt9A95EvAfDNyz_blUF9X5?usp=sharing#scrollTo=egkDpRSiPyWY"
+              >Explore our Federated Learning Colab Notebook</a
+            >
+          </p>
+
           <h2>Conclusion</h2>
+          <p>
+            The FedAvg algorithm is a cornerstone in federated learning,
+            addressing both the efficiency of model training in decentralized
+            environments and the privacy concerns associated with data sharing.
+            Its design and implementation have opened up new possibilities in
+            the application of machine learning models, especially in scenarios
+            where data privacy and communication efficiency are paramount.
+          </p>
 
           <h3>References</h3>
 
           <p>
-            <a name="bottou-1990">[1]</a>
-            <a href="https://papers.baulab.info/Bottou-1990.pdf"
-              >L&eacute;on Bottou and Patrick Gallinari.
-              <em
-                >A framework for the cooperation of learning algorithms.</em
-              ></a
+            <a name="reference-1">[i]</a>
+            <a href="https://arxiv.org/abs/1912.04977v3">arXiv:1912.04977v3.</a>
+          </p>
+          <p>
+            <a name="reference-2">[ii]</a>
+            <a href="https://dl.acm.org/doi/10.1145/3414045.3415949"
+              >https://dl.acm.org/doi/10.1145/3414045.3415949.</a
             >
-            Advances in neural information processing systems 3 (1990).
+          </p>
+          <p>
+            <a name="reference-3">[iii]</a>
+            <a href="https://www.mdpi.com/1424-8220/21/13/4586"
+              >https://www.mdpi.com/1424-8220/21/13/4586.</a
+            >
+          </p>
+          <p>
+            <a name="reference-4">[iv]</a>
+            <a href="https://doi.org/10.1038/s41591-021-01506-3"
+              >https://doi.org/10.1038/s41591-021-01506-3.</a
+            >
+          </p>
+          <p>
+            <a name="reference-5">[v]</a>
+            <a href="https://www.mdpi.com/2076-3417/11/23/11191"
+              >https://www.mdpi.com/2076-3417/11/23/11191.</a
+            >
+          </p>
+          <p>
+            <a name="reference-6">[vi]</a>
+            <a
+              href="https://mlcommons.org/2023/07/announcing-medperf-open-benchmarking-platform-for-medical-ai/"
+              >https://mlcommons.org/2023/07/announcing-medperf-open-benchmarking-platform-for-medical-ai/.</a
+            >
+          </p>
+          <p>
+            <a name="reference-7">[vii]</a>
+            <a href="https://arxiv.org/abs/1901.06455"
+              >https://arxiv.org/abs/1901.06455.</a
+            >
+          </p>
+          <p>
+            <a name="reference-8">[viii]</a>
+            <a href="https://arxiv.org/abs/2202.01141"
+              >https://arxiv.org/abs/2202.01141.</a
+            >
           </p>
 
           <h2>Team Members</h2>
