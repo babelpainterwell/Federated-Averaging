@@ -94,20 +94,6 @@
             >
           </p>
           <img src="FL1.png" alt="Federated Learning" style="width: 80%" />
-          <p style="text-align: left">
-            The paper "Communication-Efficient Learning of Deep Networks from
-            Decentralized Data" is seminal in introducing federated learning. It
-            outlines the fundamental architecture of an FL system and an
-            aggregation algorithm for updating the model on a central server.
-            Although this work primarily focuses on optimization properties
-            within an FL setting and offers limited discussion on practical
-            issues that might arise in real-world applications, we believe it
-            provides an excellent foundation for understanding the technology
-            and setting the stage for future research or practical applications.
-            By the end of this project, we aim to implement this technique
-            hands-on and uncover insights into potential solutions for several
-            practical challenges.
-          </p>
         </div>
       </div>
       <div class="row">
@@ -150,32 +136,41 @@
             describes a method of weighted averaging aggregation for local
             updates, as opposed to simple averaging.
           </p>
+          <p>
+            How can we leverage more local computation to address the issue of
+            high communication costs? What is weighted average aggregation in
+            the federated learning setting, and what are its benefits compared
+            to simple averaging? With these questions in mind, let's dive into
+            the paper!
+          </p>
 
           <h2>Literature Review</h2>
           <p>
-            The concept of federated learning introduced in this paper builds
-            upon various prior works in distributed computing,
-            privacy-preserving data analysis, and machine learning. Before this
-            paper, most machine learning models relied on centralized data
-            collection, which raised concerns about data privacy and efficiency.
-            The paper references earlier works on parallelized learning and data
-            decentralization but takes a novel approach by focusing on
-            communication efficiency and privacy.
+            The paper
+            <i
+              >Communication-Efficient Learning of Deep Networks from
+              Decentralized Data</i
+            >
+            is seminal in introducing federated learning. It outlines the
+            fundamental architecture of an FL system and an aggregation
+            algorithm, <strong>FedAvg (Federated Averaging)</strong>, for
+            updating the global model on a central server based on local
+            gradients or weights updates from client servers. Although this work
+            primarily focuses on optimization properties within an FL setting
+            and offers limited discussion on practical issues that might arise
+            in real-world applications, we believe it provides an excellent
+            foundation for understanding the technology and setting the stage
+            for future research or practical applications.
           </p>
-          <h3>Related Works</h3>
-          <p>placeholder</p>
           <h3>The FedAvg Algorithm - Overview</h3>
-          <p>
-            The FedAvg algorithm is designed to efficiently train a global model
-            in a federated setting. The key steps are as follows:
-          </p>
+          <p>The key steps are as follows:</p>
           <ul>
             <li>
               <b>Initialization:</b> A global model is initialized on a central
               server.
             </li>
             <li>
-              Local Training: This global model is sent to a subset of
+              <b>Local Training:</b> This global model is sent to a subset of
               participating devices (clients). Each client trains the model on
               their local data.
             </li>
@@ -194,7 +189,95 @@
               the model converges or meets certain performance criteria.
             </li>
           </ul>
+          <div style="display: flex; justify-content: center">
+            <img
+              src="FL2.png"
+              alt="Federated Learning"
+              style="width: 40%; margin: 20px"
+            />
+          </div>
+          <p>More specifically,</p>
+          <h4>Server Executes:</h4>
+          <ol>
+            <li>
+              The server initializes the global model with parameters
+              <code>w_0</code>.
+            </li>
+            <li>
+              For each round <code>t</code>:
+              <ul>
+                <li>
+                  The server selects a subset <code>S_t</code> of
+                  <code>m</code> clients randomly from the total
+                  <code>K</code> clients. <code>C</code> is a fraction of the
+                  total number of clients.
+                </li>
+                <li>
+                  Each selected client <code>k</code> performs a
+                  <code>ClientUpdate</code> on the current global model
+                  <code>w_t</code>.
+                </li>
+                <li>
+                  The server computes <code>m_t</code>, the sum of the data
+                  points <code>n_k</code> from all selected clients.
+                </li>
+                <li>
+                  The server updates the global model to
+                  <code>w_{t+1}</code> using a weighted sum of the client
+                  updates, with weights proportional to their data points.
+                </li>
+              </ul>
+            </li>
+          </ol>
+
+          <h4>ClientUpdate:</h4>
+          <p>(Run on client <code>k</code>)</p>
+          <ol>
+            <li>
+              The client splits its local data <code>P_k</code> into batches of
+              size <code>B</code>.
+            </li>
+            <li>
+              For each local epoch <code>i</code> from 1 to <code>E</code>:
+              <ul>
+                <li>
+                  The client processes each batch <code>b</code> and updates the
+                  local model parameters <code>w</code> using gradient descent.
+                </li>
+                <li>
+                  After <code>E</code> epochs, the client returns the updated
+                  parameters <code>w</code> to the server.
+                </li>
+              </ul>
+            </li>
+          </ol>
+
+          <h4>Key Variables:</h4>
+          <ul>
+            <li>
+              <code>C</code>: The fraction of clients participating in each
+              training round.
+            </li>
+            <li><code>K</code>: The total number of clients.</li>
+            <li>
+              <code>B</code>: The local minibatch size for client updates.
+            </li>
+            <li>
+              <code>E</code>: The number of local epochs for client updates.
+            </li>
+            <li><code>&eta;</code>: The learning rate for gradient descent.</li>
+          </ul>
+
           <p>Contrast with simple FedSGD</p>
+          <div style="display: flex; justify-content: center">
+            <img
+              src="FedSGD.png"
+              alt="FedSGD"
+              style="width: 70%; margin: 20px"
+            />
+          </div>
+          <h3>Related Works</h3>
+          <p>placeholder</p>
           <h3>Experiements (diagrams)</h3>
           <p>placeholder</p>
 
