@@ -63,20 +63,23 @@
     <div class="container">
       <div class="row">
         <div class="col justify-content-center text-center">
-          <h2>
+          <h1>
             An Analysis of [Communication-Efficient Learning of Deep Networks
             from Decentralized Data]
-          </h2>
+          </h1>
+          <h2 style="text-align: left">Motivation</h2>
           <p style="text-align: left">
             Federated learning has gained widespread use in healthcare sectors
             where data sharing is often challenging due to concerns over user
             privacy and data ownership. Without adequate techniques to utilize
             these "isolated" data, we typically encounter data silos. Hospitals
             are eager to leverage their data but lack the knowledge to do so
-            effectively. Introduced by Google in 2016, federated learning was
-            designed to tackle this issue by adhering to the core principle that
-            only model gradients or weights, not raw data, are exchanged among
-            servers.
+            effectively. Introduced by Google in 2016,
+            <strong>
+              >federated learning was designed to tackle this issue by adhering
+              to the core principle that only model gradients or weights, not
+              raw data, are exchanged among servers.</strong
+            >
           </p>
           <p style="text-align: left">
             Yet, in recent years, we haven’t seen this technology adopted on a
@@ -84,11 +87,13 @@
             from both regulatory agencies and the public. One possible reason is
             that tech companies may lack the incentive to allow users to keep
             their data on local devices, as this data is a lucrative resource
-            for them. However, we are interested in investigating, from a
-            technical standpoint, what factors are impeding the broader adoption
-            of this technology.
+            for them.<strong>
+              However, we are interested in investigating, from a technical
+              standpoint, what factors are impeding the broader adoption of this
+              technology.</strong
+            >
           </p>
-          <img src="FL1.png" alt="Federated Learning" style="width: 100%" />
+          <img src="FL1.png" alt="Federated Learning" style="width: 80%" />
           <p style="text-align: left">
             The paper "Communication-Efficient Learning of Deep Networks from
             Decentralized Data" is seminal in introducing federated learning. It
@@ -107,11 +112,38 @@
       </div>
       <div class="row">
         <div class="col">
-          <h2>
-            Literature Review; Biography; Social Impact; Industry Applications;
-            Follow-on Research; and Peer-Review
-          </h2>
-          <h2>1. Literature Review</h2>
+          <h2>Introduction</h2>
+          <p>
+            <strong
+              >Federated Learning is a distributed learning technique that
+              learns a shared model by aggregating locally-computed
+              updates.</strong
+            >
+            Instead of all training happens on a central server, it's
+            distributed into multiple 'client' nodes. Distributed learning is
+            nothing new. Exploration in distributed training, specifically in
+            iteratively averaging locally trained models, has been extensively
+            studied and practically applied to the cluster/data setting.
+          </p>
+          <p>
+            Then, how is Federated Learning different? The difference stems from
+            the environment. Consider a data cluster center, where we assume
+            balanced (each client node shares a similar size dataset) and IID
+            (independent and identically distributed) data input, along with
+            fast networks of high stability and synchronization. In the
+            federated setting, we usually deal with from dozens to millions of
+            local datasets, characterized by unbalanced, non-IID properties and
+            bandwidth-constrained networks.
+            <strong
+              >This shift in setting results in a transition of focus: from
+              computational costs in cluster settings to communication costs in
+              federated environments.</strong
+            >The Federated Averaging, introduced by this paper, serves the
+            purpose of leveraging additional local computation to decrease the
+            number of communication rounds needed to train a model.
+          </p>
+
+          <h2>Literature Review</h2>
           <p>
             The concept of federated learning introduced in this paper builds
             upon various prior works in distributed computing,
@@ -394,7 +426,7 @@
             />
             <img src="client.png" alt="Client" style="width: 30%" />
           </div>
-          <br
+          <br />
           <p>
             <a
               href="https://colab.research.google.com/drive/1LIyYtxJQ5UTt9A95EvAfDNyz_blUF9X5?usp=sharing#scrollTo=egkDpRSiPyWY"
