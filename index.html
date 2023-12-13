@@ -36,6 +36,11 @@
       integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct"
       crossorigin="anonymous"
     ></script>
+    <script
+      type="text/javascript"
+      async
+      src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.0/es5/tex-mml-chtml.js"
+    ></script>
     <link
       href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700"
       rel="stylesheet"
@@ -152,7 +157,7 @@
               Decentralized Data</i
             >
             is seminal in introducing federated learning. It outlines the
-            fundamental architecture of an FL system and an aggregation
+            fundamental architecture of an FL system and an optimization
             algorithm, <strong>FedAvg (Federated Averaging)</strong>, for
             updating the global model on a central server based on local
             gradients or weights updates from client servers. Although this work
@@ -163,7 +168,64 @@
             for future research or practical applications.
           </p>
           <h3>The FedAvg Algorithm - Overview</h3>
-          <p>The key steps are as follows:</p>
+          <figure
+            style="
+              float: right;
+              width: 50%;
+              margin-left: 20px;
+              margin-bottom: 10px;
+              text-align: center;
+            "
+          >
+            <img
+              src="FedSGD.png"
+              alt="FedSGD"
+              style="width: 100%"
+              Make
+              the
+              image
+              take
+              the
+              full
+              width
+              of
+              the
+              figure
+              element
+              --
+            />
+
+            <figcaption>
+              To achieve comparable test accuracy, FedSGD requires an order of
+              magnitude more communication rounds compared to FedAvg.
+            </figcaption>
+          </figure>
+          <p>
+            The predominant optimization algorithm in use is Stochastic Gradient
+            Descent (SGD), which adapts well to federated optimization by
+            processing a single batch gradient per communication round. Although
+            this method is computationally frugal, it necessitates a substantial
+            number of training rounds to develop robust models. For example,
+            advanced techniques like batch normalization required 50,000
+            iterations for the MNIST dataset with small minibatches.
+            <strong>
+              Given that communication is a costly resource in federated
+              learning, reducing the number of communication rounds is
+              imperative. This necessity distinguishes FedAvg from FedSGD:
+              FedAvg significantly curtails communication demand by aggregating
+              multiple local updates before transmitting them, whereas FedSGD
+              communicates after every batch, increasing the communication
+              overhead.
+            </strong>
+            This efficiency in reducing communication rounds makes FedAvg
+            particularly advantageous in federated settings.
+          </p>
+          <p>The key steps of <strong>FedAvg</strong> are as follows:</p>
+          <p>
+            $$ Loss Function: f(w) = \sum_{k=1}^{K} \frac{n_k}{n} F_k(w) \quad
+            \text{where} \quad F_k(w) = \frac{1}{n_k} \sum_{i \in P_k} f_i(w).
+            $$
+          </p>
           <ul>
             <li>
               <b>Initialization:</b> A global model is initialized on a central
@@ -196,8 +258,23 @@
               style="width: 40%; margin: 20px"
             />
           </div>
+          <h5>Key Variables:</h5>
+          <ul>
+            <li>
+              <code>C</code>: The fraction of clients participating in each
+              training round.
+            </li>
+            <li><code>K</code>: The total number of clients.</li>
+            <li>
+              <code>B</code>: The local minibatch size for client updates.
+            </li>
+            <li>
+              <code>E</code>: The number of local epochs for client updates.
+            </li>
+            <li><code>&eta;</code>: The learning rate for gradient descent.</li>
+          </ul>
           <p>More specifically,</p>
-          <h4>Server Executes:</h4>
+          <h5>Server Executes:</h5>
           <ol>
             <li>
               The server initializes the global model with parameters
@@ -230,7 +307,7 @@
             </li>
           </ol>
 
-          <h4>ClientUpdate:</h4>
+          <h5>ClientUpdate:</h5>
           <p>(Run on client <code>k</code>)</p>
           <ol>
             <li>
@@ -252,33 +329,67 @@
             </li>
           </ol>
 
-          <h4>Key Variables:</h4>
+          <h3>Related Works</h3>
           <ul>
             <li>
-              <code>C</code>: The fraction of clients participating in each
-              training round.
-            </li>
-            <li><code>K</code>: The total number of clients.</li>
-            <li>
-              <code>B</code>: The local minibatch size for client updates.
+              <strong>McDonald et al. (2010):</strong> Related to FedAvg by
+              introducing model averaging in distributed settings, but did not
+              account for federated learning's characteristic unbalanced and
+              non-IID data.
             </li>
             <li>
-              <code>E</code>: The number of local epochs for client updates.
+              <strong>Povey et al. (2015):</strong> Utilized parameter averaging
+              in deep neural networks for speech recognition, sharing conceptual
+              ground with FedAvg's approach to model updates.
             </li>
-            <li><code>&eta;</code>: The learning rate for gradient descent.</li>
+            <li>
+              <strong>Shokri and Shmatikov (2015):</strong> Proposed a
+              privacy-preserving approach that aligns with FedAvg's goal to
+              reduce communication costs, although it did not address federated
+              learning's unique data challenges.
+            </li>
+            <li>
+              <strong>Dean et al. (2012):</strong> Explored large-scale
+              distributed deep networks training (using SGD, more details
+              below), which is relevant to FedAvg's scale, but FedAvg
+              specifically reduces the updates needed for federated contexts.
+            </li>
           </ul>
 
-          <p>Contrast with simple FedSGD</p>
-          <div style="display: flex; justify-content: center">
+          <p>
+            <strong>Uniqueness of Federated Averaging Algorithm:</strong> FedAvg
+            aims to address the training on unbalanced and non-IID data
+            distributions across numerous clients. It is specifically designed
+            to optimize the trade-off between local computation and
+            communication efficiency. This optimization is critical in scenarios
+            where preserving data privacy, managing limited bandwidth, and
+            dealing with uneven data distribution are primary concerns.
+          </p>
+
+          <h3>Experiements (diagrams)</h3>
+          <div class="center-image">
             <img
-              src="FedSGD.png"
-              alt="FedSGD"
-              style="width: 70%; margin: 20px"
+              src="MNIST-2NN-CNN.png"
+              alt="Federated Learning"
+              style="width: 50%"
             />
           </div>
-          <h3>Related Works</h3>
           <p>placeholder</p>
-          <h3>Experiements (diagrams)</h3>
+          <div class="center-image">
+            <img
+              src="MNIST-CNN-ACCURACY.png"
+              alt="Federated Learning"
+              style="width: 50%"
+            />
+          </div>
+          <p>placeholder</p>
+          <div class="center-image">
+            <img
+              src="MNIST-2NN-ACCURACY.png"
+              alt="Federated Learning"
+              style="width: 50%"
+            />
+          </div>
           <p>placeholder</p>
 
           <p></p>
