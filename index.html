@@ -92,34 +92,7 @@
             from Decentralized Data]
           </h1>
           <h2 style="text-align: left">Motivation</h2>
-          <p style="text-align: left">
-            Federated Learning emerged in response to the challenges of privacy
-            and data security in the era of big data. Initially, machine
-            learning models relied on centralized data storage, raising concerns
-            about privacy breaches and the logistical difficulties of handling
-            large datasets. The advent of strict data privacy regulations like
-            the EU's General Data Protection Regulation further pushed the need
-            for decentralized, privacy-preserving data processing methods. This
-            backdrop set the stage for a new approach to machine learning, one
-            that would address these growing concerns while still leveraging the
-            power of big data.
-          </p>
-          <p style="text-align: left">
-            The concept of Federated Learning was significantly propelled into
-            the spotlight by Google's 2016 paper, which introduced the idea of
-            training machine learning models on users' devices, such as
-            smartphones, keeping the data localized and thus enhancing privacy.
-            The approach involves decentralized training where the algorithm is
-            sent to the data source, and only the model updates are shared with
-            the server, not the raw data. This method not only preserves privacy
-            but also reduces the need for data centralization. While initially
-            used in applications like text prediction in Google's Gboard,
-            Federated Learning has since expanded into various sectors,
-            including healthcare and finance, marking a paradigm shift in how
-            machine learning models are trained and emphasizing the importance
-            of privacy in the age of data-driven technology.
-          </p>
-
+          
           <p style="text-align: left">
             Federated learning has gained widespread use in healthcare sectors
             where data sharing is often challenging due to concerns over user
@@ -833,74 +806,26 @@
           <hr style="margin-top: 50px; margin-bottom: 20px" />
           <h2>Industry Applications</h2>
           <p>
-            Federated learning is particularly relevant in scenarios where
-            individual entities must train models on datasets larger than their
-            own but are unable to share the raw data due to legal, strategic, or
-            economic considerations. The success of this technology hinges on
-            robust connections between local servers and the minimal
-            computational power required for each node.
+            Following are some examples of real-world implementation of federated learning applications.
           </p>
-
-          <p>
-            In the realm of transportation, self-driving cars leverage various
-            machine learning technologies such as computer vision for obstacle
-            analysis and machine learning for adapting to environmental factors,
-            like the condition of the road. The traditional cloud-based approach
-            for managing a potentially large fleet of self-driving cars poses
-            safety risks due to the need for rapid real-world responses.
-            Federated learning emerges as a solution by reducing data transfer
-            volumes and expediting the learning processes.
-          </p>
-
-          <p>
-            Within the context of industry and smart manufacturing, machine
-            learning techniques are widely adopted to enhance industrial
-            processes' efficiency and effectiveness while maintaining a high
-            level of safety. Despite these advancements, the privacy of
-            sensitive data remains a paramount concern for industries. Federated
-            learning algorithms offer a viable solution by addressing these
-            issues without compromising sensitive information. Additionally,
-            federated learning finds applications in PM2.5 prediction,
-            supporting smart city sensing applications.
-          </p>
-
-          <p>
-            Regarding medicine and digital health, federated learning tackles
-            challenges related to data governance and privacy by facilitating
-            collaborative algorithm training without the need for direct data
-            exchange. The conventional approach of centralizing data from
-            various medical institutions raises critical concerns about patient
-            privacy and data protection. Federated learning enables the training
-            of machine learning models at scale, across multiple medical
-            institutions while preserving data integrity. Notably, recent
-            research validates the effectiveness of federated learning in
-            predicting clinical outcomes for patients with COVID-19,
-            demonstrating accuracy and generalizability in a global context. A
-            systematic review of federated learning in healthcare outlines
-            challenges specific to medical data, emphasizing the need for
-            careful consideration.
-          </p>
-
-          <p>
-            A collaborative effort between industry and academia has yielded
-            MedPerf, an open-source platform designed to validate medical AI
-            models using real-world data. It relies on federated evaluation of
-            AI models to address patient privacy concerns and utilizes diverse
-            benchmark committees to define specifications for neutral,
-            clinically impactful benchmarks.
-          </p>
-
-          <p>
-            In the field of robotics, which spans a spectrum from simple,
-            repetitive tasks to complex, unpredictable activities, machine
-            learning is indispensable. Federated learning stands out as a
-            solution to enhance conventional machine learning training methods.
-            Research papers showcase the application of federated learning in
-            diverse robotic scenarios, including navigation over various
-            environments, multi-robot navigation under limited communication
-            bandwidth, and vision-based navigation, all contributing to improved
-            sim-to-real transfer.
-          </p>
+          <ol>
+            <li>
+              <strong>UCSF COVID-19 Modeling:</strong> Used in healthcare at UCSF to predict oxygen levels in COVID-19 patients using decentralized data​​.
+            </li>
+            <li>
+              <strong>Glioblastoma Study:</strong> Global effort involving 6314 glioblastoma patients across 71 sites for detecting cancer sub-compartment boundaries​​.
+            </li>
+            <li>
+              <strong>WeBank:</strong> Applied in finance by WeBank for credit rating, combining their data with encrypted invoice data for loan default prediction​​.
+            </li>
+            <li>
+              <strong>Siemens:</strong> Implemented in manufacturing for predictive maintenance and quality control, analyzing data from machinery across multiple plants.
+            </li>
+            <li>
+              <strong>Enershare:</strong> Used in the energy sector for optimizing renewable energy systems, focusing on energy forecasting and grid management.
+            </li>
+          </ol>  
+          
 
           <hr style="margin-top: 50px; margin-bottom: 20px" />
           <h2>Follow-on Research</h2>
@@ -940,7 +865,25 @@
           <hr style="margin-top: 50px; margin-bottom: 20px" />
           <h2>Peer-Review</h2>
           <h4>Gabriel's review:</h4>
-          <p>[placeholder]</p>
+          <p>This paper presents a clear problem and proposes a clear and straight forward solution. 
+            As is with most seminal papers, it lacks real-world validation and does not address real-world
+          obstacles that might occur.</p>
+
+          <h5>Strengths:</h5>
+          <ol>
+            <li><strong>Innovative Algorithm:</strong> Introduces the FederatedAveraging algorithm, a groundbreaking approach for training models with decentralized data.</li>
+            <li><strong>Comprehensive Analysis:</strong> Provides a thorough analysis of the algorithm's performance, particularly in scenarios with non-IID (non-identically distributed) and unbalanced data.</li>
+            <li><strong>Significant Communication Efficiency:</strong> Demonstrates substantial reductions in the amount of data that needs to be communicated, which is crucial for federated learning.</li>
+          </ol>
+          <h5>Weaknesses:</h5>
+          <ol>
+            <li><strong>Experimental Limitations:</strong> The experiments primarily focus on a limited set of models and datasets, which may not fully represent the diversity of real-world applications.</li>
+            <li><strong>Potential Scalability Concerns:</strong> While the algorithm is effective in the scenarios tested, its scalability and effectiveness in larger, more complex environments are not extensively explored.</li>
+            <li><strong>Omitted Aspects of Federated Learning:</strong> The paper focuses predominantly on communication efficiency, potentially overlooking other critical aspects like privacy, security, and data heterogeneity.</li>
+          </ol>
+
+
+          
           <h4>Zhongwei's review:</h4>
           <p>
             <strong>Overall Impression:</strong> The paper contributes
@@ -1087,6 +1030,40 @@
             >
           </p>
 
+          <p>
+            <a name="reference-9">[ix]</a>
+            <a href="https://intelligentimaging.ucsf.edu/news/lessons-learned-real-world-federated-learning-experience-covid-19-modeling-ucsf"
+              >https://intelligentimaging.ucsf.edu/news/lessons-learned-real-world-federated-learning-experience-covid-19-modeling-ucsf</a
+            >
+          </p>
+          
+          <p>
+            <a name="reference-10">[x]</a>
+            <a href="https://www.nature.com/articles/s41467-022-33407-5"
+              >https://www.nature.com/articles/s41467-022-33407-5</a
+            >
+          </p>
+          
+          <p>
+            <a name="reference-11">[xi]</a>
+            <a href="https://www.digfingroup.com/webank-clustar/"
+              >https://www.digfingroup.com/webank-clustar/</a
+            >
+          </p>
+          
+          <p>
+            <a name="reference-12">[xii]</a>
+            <a href="https://www.siemens.com/global/en/products/automation/topic-areas/artificial-intelligence-in-industry/whitepaper-federated-learning-in-the-industry.html"
+              >https://www.siemens.com/global/en/products/automation/topic-areas/artificial-intelligence-in-industry/whitepaper-federated-learning-in-the-industry.html</a
+            >
+          </p>
+          
+          <p>
+            <a name="reference-13">[xiii]</a>
+            <a href="https://enershare.eu/about/"
+              >https://enershare.eu/about/</a
+            >
+          </p>
           <h2>Team Members</h2>
 
           <p>Gabriel Cuchacovich</p>
