@@ -93,30 +93,33 @@
           </h1>
           <h2 style="text-align: left">Motivation</h2>
           <p style="text-align: left">
-            Federated Learning emerged in response to the challenges of privacy 
-            and data security in the era of big data. Initially, machine learning 
-            models relied on centralized data storage, raising concerns about 
-            privacy breaches and the logistical difficulties of handling large datasets. 
-            The advent of strict data privacy regulations like the EU's General Data 
-            Protection Regulation further pushed the need for decentralized, 
-            privacy-preserving data processing methods. This backdrop set the stage for 
-            a new approach to machine learning, one that would address these growing 
-            concerns while still leveraging the power of big data.
+            Federated Learning emerged in response to the challenges of privacy
+            and data security in the era of big data. Initially, machine
+            learning models relied on centralized data storage, raising concerns
+            about privacy breaches and the logistical difficulties of handling
+            large datasets. The advent of strict data privacy regulations like
+            the EU's General Data Protection Regulation further pushed the need
+            for decentralized, privacy-preserving data processing methods. This
+            backdrop set the stage for a new approach to machine learning, one
+            that would address these growing concerns while still leveraging the
+            power of big data.
           </p>
           <p style="text-align: left">
-            The concept of Federated Learning was significantly propelled into the spotlight 
-            by Google's 2016 paper, which introduced the idea of training machine learning 
-            models on users' devices, such as smartphones, keeping the data localized and 
-            thus enhancing privacy. The approach involves decentralized training where the 
-            algorithm is sent to the data source, and only the model updates are shared with 
-            the server, not the raw data. This method not only preserves privacy but also reduces 
-            the need for data centralization. While initially used in applications like text 
-            prediction in Google's Gboard, Federated Learning has since expanded into various 
-            sectors, including healthcare and finance, marking a paradigm shift in how machine 
-            learning models are trained and emphasizing the importance of privacy in the age of 
-            data-driven technology.
+            The concept of Federated Learning was significantly propelled into
+            the spotlight by Google's 2016 paper, which introduced the idea of
+            training machine learning models on users' devices, such as
+            smartphones, keeping the data localized and thus enhancing privacy.
+            The approach involves decentralized training where the algorithm is
+            sent to the data source, and only the model updates are shared with
+            the server, not the raw data. This method not only preserves privacy
+            but also reduces the need for data centralization. While initially
+            used in applications like text prediction in Google's Gboard,
+            Federated Learning has since expanded into various sectors,
+            including healthcare and finance, marking a paradigm shift in how
+            machine learning models are trained and emphasizing the importance
+            of privacy in the age of data-driven technology.
           </p>
-            
+
           <p style="text-align: left">
             Federated learning has gained widespread use in healthcare sectors
             where data sharing is often challenging due to concerns over user
@@ -360,7 +363,7 @@
             </li>
           </ol>
 
-          <h3>Related Works</h3>
+          <h3>Previous Related Works</h3>
           <ul>
             <li>
               <strong>McDonald et al. (2010):</strong> Related to FedAvg by
@@ -479,9 +482,9 @@
           <p>
             Before highlighting FedAvg's remarkable efficiency in reducing
             communication rounds/costs, please note that the following
-            experiments were all conducted in a setting where C=0.1, based on
-            previous empirical studies. This setting means that only 10% of
-            total clients are involved in these tasks.
+            experiments were all conducted in a setting where <b> C=0.1 </b>,
+            based on previous empirical studies. This setting means that only
+            10% of total clients are involved in these tasks.
             <strong
               >To increase computation per client per round, we either decreased
               B (the local minibatch size), increased E (the number of local
@@ -633,6 +636,12 @@
               prioritize privacy preservation at the expense of model
               performance.</strong
             >
+          </p>
+          <p>
+            The figures on the right show the performance of a CNN MNIST model
+            under both IID and Non-IID settings. Models with different
+            hyperparameters might have different rates of convergence, but in
+            the end, they show very promising accuracy results.
           </p>
           <h4 style="clear: both">
             <b> Can we over-optimize on the client datasets? </b>
