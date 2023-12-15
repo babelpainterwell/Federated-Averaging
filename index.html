@@ -235,12 +235,12 @@
           </figure>
           <p>
             The predominant optimization algorithm in use is Stochastic Gradient
-            Descent (SGD), which adapts well to federated optimization by
-            processing a single batch gradient per communication round. Although
-            this method is computationally frugal, it necessitates a substantial
-            number of training rounds to develop robust models. For example,
-            advanced techniques like batch normalization required 50,000
-            iterations for the MNIST dataset with small minibatches.
+            Descent (SGD), which adapts well to federated optimization (FedSGD)
+            by processing a single batch gradient per communication round.
+            Although this method is computationally frugal, it necessitates a
+            substantial number of training rounds to develop robust models. For
+            example, advanced techniques like batch normalization required
+            50,000 iterations for the MNIST dataset with small minibatches.
             <strong>
               Given that communication is a costly resource in federated
               learning, reducing the number of communication rounds is
