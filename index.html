@@ -92,7 +92,7 @@
             from Decentralized Data]
           </h1>
           <h2 style="text-align: left">Motivation</h2>
-          
+
           <p style="text-align: left">
             Federated learning has gained widespread use in healthcare sectors
             where data sharing is often challenging due to concerns over user
@@ -806,32 +806,43 @@
           <hr style="margin-top: 50px; margin-bottom: 20px" />
           <h2>Industry Applications</h2>
           <p>
-            Following are some examples of real-world implementation of federated learning applications.
+            Following are some examples of real-world implementation of
+            federated learning applications.
           </p>
           <ol>
             <li>
-              <strong>UCSF COVID-19 Modeling:</strong> Used in healthcare at UCSF to predict oxygen levels in COVID-19 patients using decentralized data​​.
+              <strong>UCSF COVID-19 Modeling:</strong> Used in healthcare at
+              UCSF to predict oxygen levels in COVID-19 patients using
+              decentralized data​​.
             </li>
             <li>
-              <strong>Glioblastoma Study:</strong> Global effort involving 6314 glioblastoma patients across 71 sites for detecting cancer sub-compartment boundaries​​.
+              <strong>Glioblastoma Study:</strong> Global effort involving 6314
+              glioblastoma patients across 71 sites for detecting cancer
+              sub-compartment boundaries​​.
             </li>
             <li>
-              <strong>WeBank:</strong> Applied in finance by WeBank for credit rating, combining their data with encrypted invoice data for loan default prediction​​.
+              <strong>WeBank:</strong> Applied in finance by WeBank for credit
+              rating, combining their data with encrypted invoice data for loan
+              default prediction​​.
             </li>
             <li>
-              <strong>Siemens:</strong> Implemented in manufacturing for predictive maintenance and quality control, analyzing data from machinery across multiple plants.
+              <strong>Siemens:</strong> Implemented in manufacturing for
+              predictive maintenance and quality control, analyzing data from
+              machinery across multiple plants.
             </li>
             <li>
-              <strong>Enershare:</strong> Used in the energy sector for optimizing renewable energy systems, focusing on energy forecasting and grid management.
+              <strong>Enershare:</strong> Used in the energy sector for
+              optimizing renewable energy systems, focusing on energy
+              forecasting and grid management.
             </li>
-          </ol>  
-          
+          </ol>
 
           <hr style="margin-top: 50px; margin-bottom: 20px" />
           <h2>Follow-on Research</h2>
           <p>
-            Several potential issues are identified that can hinder the
-            effective implementation of federated learning:
+            Several potential issues have been identified that can hinder the
+            effective implementation of federated learning, and some of these
+            have now become popular open research areas.
           </p>
 
           <ol>
@@ -841,6 +852,52 @@
               distributed (non-IID) across the network. This variability can
               negatively impact the learning process and the performance of the
               global model.
+              <h5>Strategies for Handling Non-IID Data</h5>
+
+              <h6>1. Algorithmic Adaptation:</h6>
+              <ul>
+                <li>Modify existing algorithms or develop new ones.</li>
+                <li>Adjust hyperparameters to manage diverse datasets.</li>
+              </ul>
+
+              <h6>2. Data Augmentation:</h6>
+              <ul>
+                <li>Create a small, globally shared dataset for uniformity.</li>
+                <li>
+                  Utilize public data sources or non-sensitive client data.
+                </li>
+              </ul>
+
+              <h6>3. Objective Function Optimization:</h6>
+              <ul>
+                <li>
+                  Re-evaluate objective functions considering client diversity.
+                </li>
+                <li>
+                  Introduce limitations and fairness criteria in data
+                  contribution.
+                </li>
+              </ul>
+
+              <h6>4. Single vs. Multi-Model Debate:</h6>
+              <ul>
+                <li>Single global model: Uniformity for all clients.</li>
+                <li>
+                  Multi-model approach: Customized models for each client.
+                </li>
+                <li>Turns non-IID challenge into an advantage.</li>
+              </ul>
+
+              <h6>5. Multi-Model for Independence Violations:</h6>
+              <ul>
+                <li>
+                  Address varying client availability through multiple models.
+                </li>
+                <li>
+                  Example: Different models for clients based on
+                  timezone/longitude (Eichner et al.).
+                </li>
+              </ul>
             </li>
             <li>
               <strong>Unbalanced Data:</strong> The amount of data across
@@ -865,25 +922,52 @@
           <hr style="margin-top: 50px; margin-bottom: 20px" />
           <h2>Peer-Review</h2>
           <h4>Gabriel's review:</h4>
-          <p>This paper presents a clear problem and proposes a clear and straight forward solution. 
-            As is with most seminal papers, it lacks real-world validation and does not address real-world
-          obstacles that might occur.</p>
+          <p>
+            This paper presents a clear problem and proposes a clear and
+            straight forward solution. As is with most seminal papers, it lacks
+            real-world validation and does not address real-world obstacles that
+            might occur.
+          </p>
 
           <h5>Strengths:</h5>
           <ol>
-            <li><strong>Innovative Algorithm:</strong> Introduces the FederatedAveraging algorithm, a groundbreaking approach for training models with decentralized data.</li>
-            <li><strong>Comprehensive Analysis:</strong> Provides a thorough analysis of the algorithm's performance, particularly in scenarios with non-IID (non-identically distributed) and unbalanced data.</li>
-            <li><strong>Significant Communication Efficiency:</strong> Demonstrates substantial reductions in the amount of data that needs to be communicated, which is crucial for federated learning.</li>
+            <li>
+              <strong>Innovative Algorithm:</strong> Introduces the
+              FederatedAveraging algorithm, a groundbreaking approach for
+              training models with decentralized data.
+            </li>
+            <li>
+              <strong>Comprehensive Analysis:</strong> Provides a thorough
+              analysis of the algorithm's performance, particularly in scenarios
+              with non-IID (non-identically distributed) and unbalanced data.
+            </li>
+            <li>
+              <strong>Significant Communication Efficiency:</strong>
+              Demonstrates substantial reductions in the amount of data that
+              needs to be communicated, which is crucial for federated learning.
+            </li>
           </ol>
           <h5>Weaknesses:</h5>
           <ol>
-            <li><strong>Experimental Limitations:</strong> The experiments primarily focus on a limited set of models and datasets, which may not fully represent the diversity of real-world applications.</li>
-            <li><strong>Potential Scalability Concerns:</strong> While the algorithm is effective in the scenarios tested, its scalability and effectiveness in larger, more complex environments are not extensively explored.</li>
-            <li><strong>Omitted Aspects of Federated Learning:</strong> The paper focuses predominantly on communication efficiency, potentially overlooking other critical aspects like privacy, security, and data heterogeneity.</li>
+            <li>
+              <strong>Experimental Limitations:</strong> The experiments
+              primarily focus on a limited set of models and datasets, which may
+              not fully represent the diversity of real-world applications.
+            </li>
+            <li>
+              <strong>Potential Scalability Concerns:</strong> While the
+              algorithm is effective in the scenarios tested, its scalability
+              and effectiveness in larger, more complex environments are not
+              extensively explored.
+            </li>
+            <li>
+              <strong>Omitted Aspects of Federated Learning:</strong> The paper
+              focuses predominantly on communication efficiency, potentially
+              overlooking other critical aspects like privacy, security, and
+              data heterogeneity.
+            </li>
           </ol>
 
-
-          
           <h4>Zhongwei's review:</h4>
           <p>
             <strong>Overall Impression:</strong> The paper contributes
@@ -945,21 +1029,115 @@
 
           <hr style="margin-top: 50px; margin-bottom: 20px" />
           <h2>Code Implementation</h2>
-          <p>[placeholder]</p>
+          <p>
+            The primary objective of this code implementation is to demonstrate
+            the efficacy of the FedAvg algorithm in reducing communication costs
+            within a federated learning framework. This process comprises three
+            key components:
+          </p>
           <p>
             <a
               href="https://colab.research.google.com/drive/1LIyYtxJQ5UTt9A95EvAfDNyz_blUF9X5?usp=sharing#scrollTo=egkDpRSiPyWY"
-              >Explore our Federated Learning Colab Notebook</a
+              >Please Explore our Federated Averaging Experiment Colab
+              Notebook</a
             >
           </p>
-          <div style="display: flex">
-            <img
-              src="server.png"
-              alt="Server"
-              style="width: 40%; margin-right: 5%"
-            />
-            <img src="client.png" alt="Client" style="width: 40%" />
-          </div>
+          <ol>
+            <li>
+              <strong>Training a Sentiment Analysis Model:</strong> Using
+              vanilla stochastic gradient descent (SGD) optimization, applied
+              outside a federated learning context. The purpose of this step is
+              to establish a baseline model performance for subsequent
+              experiments in FL settings.
+            </li>
+            <li>
+              <strong>Training with FedSGD Algorithm:</strong> Utilizing the
+              FedSGD algorithm (setting E = 1, B = size of local data), which
+              involves performing a single batch gradient calculation per
+              communication round. In this case, as the minibatch size matches
+              the local dataset size, one batch is equivalent to one epoch in
+              the FedSGD framework.
+            </li>
+            <li>
+              <strong>Training with FedAvg Algorithm:</strong> Implementing the
+              FedAvg algorithm (with E=5 and B=50), where more computation is
+              executed locally. This represents a significant advancement of the
+              algorithm, especially in addressing the high communication
+              requirements typical of algorithms like FedSGD.
+            </li>
+          </ol>
+          <p>
+            Note that due to resource constraints, only the vanilla SGD and
+            FedAvg algorithm experiment has been completed, which required hours
+            of training. As the FedSGD algorithm is expected to take
+            significantly more time due to its high communication costs in the
+            federated learning setting—possibly more than an order of magnitude
+            compared to FedAvg—its experiment has been delayed.
+          </p>
+          <h5><b>Dataset preparation </b></h5>
+          <p>
+            This study utilizes the
+            <a
+              href="https://www.kaggle.com/datasets/omkarsabnis/yelp-reviews-dataset"
+              >YelpReview Sentiment Analysis dataset</a
+            >, which contains 10,000 Yelp reviews, each with review content and
+            rating stars. The primary task is to predict the rating stars
+            (ranging from 1 to 5) based on the review content.
+          </p>
+          <p>
+            The datasets for the three models mentioned are prepared as follows,
+            with each dataset first undergoing tokenization and padding before
+            splitting:
+          </p>
+          <ol>
+            <li>
+              <strong>Vanilla SGD:</strong> The entire dataset is divided into
+              80% for training and 20% for testing with minibatch size of 100.
+            </li>
+            <li>
+              <strong>FedSGD:</strong> The dataset is split into 10 shards,
+              converted into 10 dataloaders with a batch size equal to the
+              number of data points per shard, resulting in one batch per
+              dataloader.
+            </li>
+            <li>
+              <strong>FedAvg:</strong> Similar to FedSGD, the dataset is divided
+              into 10 shards, but with a minibatch size of 50.
+            </li>
+          </ol>
+          <p>
+            For both FedSGD and FedAvg models, to emulate non-IID and unbalanced
+            data conditions, the raw dataset is sorted into classes before being
+            divided into shards, with each shard containing varying numbers of
+            data examples.
+          </p>
+          <h5><b>Results</b></h5>
+          <p>
+            The Vanilla SGD model aims to establish a baseline performance for
+            this sentiment analysis task, because the three models share a same
+            network architecture. After training for 100 epochs, we clearly
+            observe overfitting, and the val accuracy of around 40% is not
+            considered good. However, this will serve as the benchmark for the
+            FedAvg and FedSGD experiments. Specifically, we will examine how
+            many communication rounds it takes for both FedAvg and FedSGD to
+            reach this threshold.
+          </p>
+
+          <img src="vanilla_sgd.png" alt="vanilla_sgd" style="width: 80%" />
+
+          <h6><b>FedAvg Experiment Results</b></h6>
+          <p>
+            The experimental results presented in the paper were not
+            successfully replicated in our code implementation, primarily due to
+            time and computational constraints. The FedAvg algorithm ran for 4
+            hours over 238 rounds for each of the 10 clients and achieved an
+            accuracy of 25.458%. The training was intentionally interrupted due
+            to computational limits. We are eager to continue this experiment in
+            the future. Despite these challenges, the notebook still merits
+            examination.
+          </p>
+          <img src="FedAvg_result.png" alt="vanilla_sgd" style="width: 80%" />
+
           <br />
 
           <hr style="margin-top: 50px; margin-bottom: 20px" />
@@ -1032,32 +1210,34 @@
 
           <p>
             <a name="reference-9">[ix]</a>
-            <a href="https://intelligentimaging.ucsf.edu/news/lessons-learned-real-world-federated-learning-experience-covid-19-modeling-ucsf"
+            <a
+              href="https://intelligentimaging.ucsf.edu/news/lessons-learned-real-world-federated-learning-experience-covid-19-modeling-ucsf"
               >https://intelligentimaging.ucsf.edu/news/lessons-learned-real-world-federated-learning-experience-covid-19-modeling-ucsf</a
             >
           </p>
-          
+
           <p>
             <a name="reference-10">[x]</a>
             <a href="https://www.nature.com/articles/s41467-022-33407-5"
               >https://www.nature.com/articles/s41467-022-33407-5</a
             >
           </p>
-          
+
           <p>
             <a name="reference-11">[xi]</a>
             <a href="https://www.digfingroup.com/webank-clustar/"
               >https://www.digfingroup.com/webank-clustar/</a
             >
           </p>
-          
+
           <p>
             <a name="reference-12">[xii]</a>
-            <a href="https://www.siemens.com/global/en/products/automation/topic-areas/artificial-intelligence-in-industry/whitepaper-federated-learning-in-the-industry.html"
+            <a
+              href="https://www.siemens.com/global/en/products/automation/topic-areas/artificial-intelligence-in-industry/whitepaper-federated-learning-in-the-industry.html"
               >https://www.siemens.com/global/en/products/automation/topic-areas/artificial-intelligence-in-industry/whitepaper-federated-learning-in-the-industry.html</a
             >
           </p>
-          
+
           <p>
             <a name="reference-13">[xiii]</a>
             <a href="https://enershare.eu/about/"
