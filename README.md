@@ -44,12 +44,12 @@ For both FedSGD and FedAvg models, to emulate non-IID and unbalanced data condit
 
 The Vanilla SGD model aims to establish a baseline performance for this sentiment analysis task, as the three models share a same network architecture. After training for 100 epochs, we clearly observe overfitting, and the val accuracy of around 40% is not considered good. However, this will serve as the benchmark for the FedAvg and FedSGD experiments. Specifically, we will examine how many communication rounds it takes for both FedAvg and FedSGD to reach this threshold.
 
-![Local Image](./images/vanilla.png)
+![Local Image](./vanilla_sgd.png)
 
 ### FedAvg Experiment Results
 
 The experimental results presented in the paper were not successfully replicated in the code implementation, primarily due to time and computational constraints. The FedAvg algorithm ran for 4 hours over 238 rounds for each of the 10 clients and achieved an accuracy of 25.458%. The training was intentionally interrupted due to computational limits. We are eager to continue this experiment in the future. Despite these challenges, the notebook still merits examination. Any feedback is welcomed!
 
-![Local Image](./images/fedavg.png)
+![Local Image](./FedAvg_result.png)
 
 > **Please Explore the Federated Averaging Experiment Colab Notebook**
